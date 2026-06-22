@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campaign Intake Form · Crossfuze</title>
+  <meta name="description" content="Sales campaign intake form for Stage 05 territory plans, Stage 06 BU branch coverage and Stage 07 free 90-minute AI Readiness Assessment.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+:root{
+  /* ===== Crossfuze design-system tokens (forced brand) ===== */
+  --cf-midnight-blue:#040E3D; --cf-bright-green:#8FFFDB; --cf-bright-blue:#71F1F7;
+  --cf-utility-blue:#2CB0CD; --cf-purple:#6400EC; --cf-lavender:#C0A6FF;
+  --cf-callout-red:#F65275; --cf-callout-green:#22E36C;
+  --cf-crisp-grey:#F2F2F4; --cf-white:#FFFFFF; --cf-black:#000000;
+  --cf-midnight-90:rgba(4,14,61,.90); --cf-midnight-70:rgba(4,14,61,.70); --cf-midnight-50:rgba(4,14,61,.50);
+  --cf-midnight-20:rgba(4,14,61,.20); --cf-midnight-10:rgba(4,14,61,.10); --cf-midnight-05:rgba(4,14,61,.05);
+  --gradient-vibrant:linear-gradient(90deg,#8FFFDB 0%,#71F1F7 100%);
+  --gradient-calm:linear-gradient(90deg,#2CB0CD 0%,#71F1F7 100%);
+  --gradient-storm:radial-gradient(ellipse 80% 90% at 50% 40%,#6400EC 0%,#2CB0CD 30%,#0A1855 70%,#040E3D 100%);
+  --gradient-storm-linear:linear-gradient(135deg,#040E3D 0%,#6400EC 55%,#2CB0CD 100%);
+  --font-sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"DM Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  --tracking-very-loose:0.25em;
+  --fs-display:clamp(56px,7vw,96px); --fs-h1:48px; --fs-h2:36px; --fs-h3:28px; --fs-h4:22px;
+  --fs-body-lg:24px; --fs-body:18px; --fs-body-sm:16px; --fs-eyebrow:16px; --fs-caption:13px;
+
+  --midnight:var(--cf-midnight-blue);--midnight2:#07164F;--ink:var(--cf-crisp-grey);--muted:#B8C1DE;--line:rgba(242,242,244,.16);
+  --green:var(--cf-bright-green);--blue:var(--cf-bright-blue);--utility:var(--cf-utility-blue);--purple:var(--cf-purple);--lavender:var(--cf-lavender);--red:var(--cf-callout-red);--grey:var(--cf-crisp-grey);
+  --panel:rgba(242,242,244,.065);--panel2:rgba(242,242,244,.105);--shadow:0 28px 90px rgba(0,0,0,.38);--radius:30px;--radius2:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:var(--font-sans);color:var(--ink);background:radial-gradient(circle at 82% -8%,rgba(100,0,236,.44),transparent 34rem),radial-gradient(circle at 12% 9%,rgba(113,241,247,.18),transparent 28rem),linear-gradient(180deg,#020620 0%,var(--midnight) 45%,#020620 100%)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(242,242,244,.025) 1px,transparent 1px),linear-gradient(rgba(242,242,244,.025) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.65),transparent 78%)}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:30px 24px 78px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:46px}
+.brand-logo{width:252px;max-width:58vw;height:auto;display:block}
+.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);background:rgba(242,242,244,.06);color:var(--ink);padding:11px 16px;border-radius:999px;font-size:14px;font-weight:850;transition:.18s ease;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);border-color:rgba(113,241,247,.42);background:rgba(242,242,244,.11)}
+.btn.primary{background:linear-gradient(135deg,rgba(113,241,247,.24),rgba(100,0,236,.25));border-color:rgba(113,241,247,.48)}
+.btn.red{border-color:rgba(246,82,117,.45);background:rgba(246,82,117,.12)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.hero{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(320px,.84fr);gap:28px;align-items:stretch;margin-bottom:24px}
+.hero-card,.side-card,.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(242,242,244,.095),rgba(242,242,244,.045));box-shadow:var(--shadow);backdrop-filter:blur(16px);border-radius:var(--radius)}
+.hero-card{position:relative;overflow:hidden;padding:46px 42px 42px}
+.hero-card:after{content:"";position:absolute;right:-95px;bottom:-120px;width:330px;height:330px;background:radial-gradient(circle,rgba(143,255,219,.22),transparent 67%);border-radius:50%}
+.kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--blue);font-size:12px;text-transform:uppercase;letter-spacing:.19em;font-weight:900}
+.kicker:before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--green),var(--blue))}
+h1{margin:0 0 18px;font-size:clamp(48px,7.6vw,88px);line-height:.88;letter-spacing:-.068em;font-weight:950;max-width:920px}
+h1 .accent{color:var(--green)}
+.lead{font-size:21px;line-height:1.52;color:#E7ECFA;margin:0;max-width:820px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.pill,.tag{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(242,242,244,.16);background:rgba(242,242,244,.06);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:850;color:#E7EDF7}
+.pill.good,.tag.good{color:var(--green);border-color:rgba(143,255,219,.34)}.pill.blue,.tag.blue{color:var(--blue);border-color:rgba(113,241,247,.34)}.pill.purple,.tag.purple{color:var(--lavender);border-color:rgba(192,166,255,.34)}.pill.red,.tag.red{color:#ffb4c1;border-color:rgba(246,82,117,.34)}
+.side-card{position:relative;overflow:hidden;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.star{position:absolute;right:26px;top:24px;width:90px;height:90px;opacity:.14;background:var(--green);clip-path:polygon(50% 0,58% 38%,100% 50%,58% 62%,50% 100%,42% 62%,0 50%,42% 38%)}
+.side-card h2{margin:0;font-size:30px;letter-spacing:-.045em;line-height:1.05}.side-card p{margin:10px 0 0;color:var(--muted);line-height:1.55}
+section{margin-top:24px}.panel{padding:30px}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:18px}.eyebrow{font-size:12px;color:var(--blue);text-transform:uppercase;letter-spacing:.16em;font-weight:900;margin-bottom:9px}
+h2{font-size:clamp(29px,3.5vw,44px);line-height:.98;margin:0;letter-spacing:-.055em}h3{font-size:21px;line-height:1.12;margin:0 0 10px;letter-spacing:-.02em}p{color:var(--muted);line-height:1.58;margin:0 0 12px}
+.grid{display:grid;gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{border:1px solid rgba(242,242,244,.13);background:rgba(242,242,244,.055);border-radius:var(--radius2);padding:20px;min-height:100%;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;left:0;top:0;right:0;height:2px;background:linear-gradient(90deg,rgba(143,255,219,.78),rgba(113,241,247,.35),rgba(192,166,255,.35));opacity:.7}
+.card.green{background:linear-gradient(180deg,rgba(143,255,219,.13),rgba(242,242,244,.044));border-color:rgba(143,255,219,.32)}.card.blue{background:linear-gradient(180deg,rgba(113,241,247,.13),rgba(242,242,244,.044));border-color:rgba(113,241,247,.32)}.card.purple{background:linear-gradient(180deg,rgba(100,0,236,.19),rgba(242,242,244,.044));border-color:rgba(192,166,255,.30)}
+.callout{border:1px solid rgba(113,241,247,.40);background:linear-gradient(135deg,rgba(113,241,247,.13),rgba(100,0,236,.15));border-radius:var(--radius2);padding:22px;margin-bottom:14px}.callout strong{color:#fff}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.step{border:1px solid rgba(242,242,244,.13);background:rgba(242,242,244,.05);border-radius:18px;padding:17px;min-height:132px}.step h3{font-size:17px}.step p{font-size:13px;margin:0}.num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:12px;margin-bottom:10px;border:1px solid rgba(113,241,247,.32);background:rgba(113,241,247,.12);font-size:13px;font-weight:900;color:var(--blue)}
+.form-shell{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:24px;align-items:start}.sticky{position:sticky;top:20px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:var(--green)}input,select,textarea{width:100%;border:1px solid rgba(242,242,244,.16);background:rgba(2,6,32,.54);color:#fff;border-radius:15px;padding:13px 14px;outline:none}input:focus,select:focus,textarea:focus{border-color:rgba(113,241,247,.56);box-shadow:0 0 0 3px rgba(113,241,247,.08)}textarea{min-height:118px;resize:vertical}.check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.check{text-transform:none;letter-spacing:0;font-size:14px;color:#E6ECFA;font-weight:750;border:1px solid rgba(242,242,244,.12);background:rgba(242,242,244,.045);border-radius:14px;padding:11px;display:flex;gap:9px;align-items:flex-start}.check input{width:auto;margin-top:3px;accent-color:#71F1F7}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.table-wrap{overflow-x:auto;border:1px solid rgba(242,242,244,.12);border-radius:20px;background:rgba(242,242,244,.04)}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;vertical-align:top;padding:14px 15px;border-bottom:1px solid rgba(242,242,244,.10)}th{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--green);background:rgba(242,242,244,.06)}td{color:#E1E7F6;line-height:1.45}tr:last-child td{border-bottom:none}.empty{color:var(--muted);font-style:italic}.output{white-space:pre-wrap;border:1px solid rgba(242,242,244,.13);background:rgba(2,6,32,.56);border-radius:20px;padding:20px;color:#E9EEFB;line-height:1.48;min-height:170px}.email-subject{border:1px solid rgba(143,255,219,.24);background:rgba(143,255,219,.07);border-radius:16px;padding:12px 14px;margin:12px 0;color:var(--green);font-weight:850}
+.footer-cta{border:1px solid rgba(113,241,247,.30);background:linear-gradient(135deg,rgba(113,241,247,.12),rgba(143,255,219,.08),rgba(100,0,236,.16));border-radius:var(--radius);padding:30px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+@media(max-width:980px){.hero,.form-shell{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.sticky{position:static}}
+@media(max-width:720px){.wrap{padding:22px 16px 58px}.topbar{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}.hero-card,.side-card,.panel,.footer-cta{padding:22px;border-radius:22px}.form-grid,.check-grid,.grid.two,.grid.three{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.footer-cta{flex-direction:column;align-items:flex-start}h1{font-size:48px}}
+@media print{body{background:#fff;color:#111}body:before,.nav,.no-print,.star{display:none!important}.wrap{max-width:none;padding:0}.hero-card,.side-card,.panel,.footer-cta,.card,.callout,.step{box-shadow:none;background:#fff;color:#111;border-color:#ddd}p,.lead,td{color:#333}h1,h2,h3,th,label,.kicker,.eyebrow{color:#040E3D}.topbar{margin-bottom:15px}.brand-logo{filter:invert(1);width:190px}.output{background:#fff;color:#111;border-color:#ddd}}
+  
+.eyebrow,.kicker,.cf-eyebrow,label{font-family:var(--font-mono);}
+
+/* ===== Brand polish (level-up) ===== */
+h1{line-height:.96;letter-spacing:-.035em;text-wrap:balance}
+h2{letter-spacing:-.03em}
+.kicker{font-size:11px;letter-spacing:.12em;align-items:center}
+.eyebrow{letter-spacing:.14em}
+@media(min-width:760px){.kicker{white-space:nowrap}}
+.lead{font-size:var(--fs-body-lg)}
+h1 .accent{background:var(--gradient-vibrant);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--gradient-vibrant);opacity:.9;z-index:2}
+@media print{h1 .accent{-webkit-text-fill-color:var(--cf-midnight-blue);color:var(--cf-midnight-blue)}.hero-card::before{display:none}}
+
+/* ===== Big metric fix (DM Sans caps at 700; enlarge + gradient to fill the card) ===== */
+.big-metric{font-size:clamp(104px,11vw,140px);line-height:.92;letter-spacing:-.04em;font-weight:700;background:var(--gradient-vibrant);-webkit-background-clip:text;background-clip:text;color:transparent}
+.metric-label{margin-top:10px;letter-spacing:.2em}
+@media print{.big-metric{-webkit-text-fill-color:var(--cf-midnight-blue);color:var(--cf-midnight-blue)}}
+
+/* Hide decorative star on metric cards so the centered number reads clean */
+.side-card:has(.big-metric) .star{display:none}
+.side-card:has(.big-metric){justify-content:flex-start;gap:18px}
+
+/* Campaign focus / solution areas selector */
+.solutions-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.sol-col{border:1px solid rgba(242,242,244,.12);background:rgba(242,242,244,.04);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.sol-col .sol-head{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding-bottom:8px;margin-bottom:2px;border-bottom:1px solid rgba(242,242,244,.12)}
+.sol-col.red{border-color:rgba(246,82,117,.4)}.sol-col.red .sol-head{color:#ffb4c1}
+.sol-col.green{border-color:rgba(143,255,219,.34)}.sol-col.green .sol-head{color:var(--green)}
+.sol-col.blue{border-color:rgba(113,241,247,.34)}.sol-col.blue .sol-head{color:var(--blue)}
+.sol-col.purple{border-color:rgba(192,166,255,.34)}.sol-col.purple .sol-head{color:var(--lavender)}
+.sol-col .check{border:none;background:transparent;padding:3px 0;font-size:13px}
+@media(max-width:980px){.solutions-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.solutions-grid{grid-template-columns:1fr}}
+
+/* Clean branded print document for Export PDF */
+#printDoc{display:none}
+body.printing>main{display:none!important}
+body.printing #printDoc{display:block}
+#printDoc{background:#fff;color:#0b1020;padding:6px 2px;font-family:var(--font-sans)}
+#printDoc .print-head{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#040E3D;-webkit-print-color-adjust:exact;print-color-adjust:exact;color:#fff;padding:16px 18px;border-radius:10px;margin-bottom:14px}
+#printDoc .print-logo{height:30px;width:auto;display:block}
+#printDoc .print-title{font-size:19px;font-weight:700;letter-spacing:-.01em}
+#printDoc .print-sub{font-size:12px;color:rgba(255,255,255,.72)}
+#printDoc .print-date{font-family:var(--font-mono);font-size:12px;color:rgba(255,255,255,.72);white-space:nowrap}
+#printDoc .print-rule{font-size:12px;background:#eef1f8;border:1px solid #cdd3e6;border-radius:8px;padding:10px 12px;margin-bottom:12px}
+#printDoc .print-summary{display:flex;gap:24px;font-size:13px;margin-bottom:14px}
+#printDoc .print-summary b{color:#040E3D;font-size:17px;margin-right:5px}
+#printDoc .print-acc{border:1px solid #cdd3e6;border-radius:8px;padding:12px 14px;margin-bottom:10px;break-inside:avoid}
+#printDoc .pa-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#printDoc .pa-n{width:22px;height:22px;border-radius:6px;background:#040E3D;-webkit-print-color-adjust:exact;print-color-adjust:exact;color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none}
+#printDoc .pa-name{font-size:15px;font-weight:700;color:#040E3D;flex:1}
+#printDoc .pa-fit{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+#printDoc .pa-fit.ok{background:#dff7ec;color:#0f7a4d;border:1px solid #9fe3c2}
+#printDoc .pa-fit.no{background:#fde4ea;color:#b3294e;border:1px solid #f3b3c4}
+#printDoc .pa-tbl{width:100%;border-collapse:collapse;font-size:11.5px}
+#printDoc .pa-tbl th{text-align:left;color:#48507a;font-weight:600;width:96px;padding:3px 8px 3px 0;vertical-align:top;white-space:nowrap}
+#printDoc .pa-tbl td{padding:3px 10px 3px 0;color:#0b1020;vertical-align:top}
+#printDoc .print-empty{font-size:13px;color:#48507a}
+@media print{@page{margin:14mm}body.printing{background:#fff!important}body.printing>main{display:none!important}#printDoc{display:block!important}.nav,.no-print{display:none!important}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <a class="brand" href="index.html" aria-label="Back to GTM Timeline"><img class="brand-logo" src="crossfuze-logo-white.png" alt="Crossfuze logo"></a>
+      <nav class="nav" aria-label="Page navigation"><a class="btn" href="top-account-territory-plans.html">Stage 05</a><a class="btn" href="branch-within-priority-accounts.html">Stage 06</a><a class="btn primary" href="free-one-hour-readiness-assessment.html">Stage 07</a></nav>
+    </div>
+    <section class="hero">
+      <div class="hero-card">
+        <div class="kicker">Campaign intake</div>
+        <h1>Sales Campaign <span class="accent">Intake Form</span></h1>
+        <p class="lead">A simple intake layer for the account-based campaign: select the salesperson, qualify the account, confirm ICP fit, choose the campaign focus and BU coverage, and produce an exportable summary for email or PDF.</p>
+        <div class="meta"><span class="pill good">Mandeep Rajput</span><span class="pill blue">Finley Norris</span><span class="pill purple">Gary Hollowed</span></div>
+      </div>
+      <aside class="side-card">
+        <div class="star"></div>
+        <div><h2>Sales-owned. Signal-fuelled.</h2><p>Growth builds and prioritises the list. Reps run the account motion. The output is a qualified territory plan and next action.</p></div>
+        <div class="meta"><span class="pill good">ServiceNow customer</span><span class="pill blue">ZoomInfo intent</span><span class="pill purple">Great Fit account</span></div>
+      </aside>
+    </section>
+    <section class="panel">
+      <div class="section-head"><div><div class="eyebrow">Brief overview</div><h2>The campaign in five steps.</h2></div></div>
+      <div class="flow">
+        <div class="step"><span class="num">1</span><h3>Select seller</h3><p>Choose Mandeep, Finley or Gary and the relevant territory / patch.</p></div>
+        <div class="step"><span class="num">2</span><h3>Confirm gates</h3><p>Existing ServiceNow customer, ZoomInfo intent and Great Fit tag.</p></div>
+        <div class="step"><span class="num">3</span><h3>Score ICP</h3><p>Industry, revenue scale, intent topics and mapped IT contact.</p></div>
+        <div class="step"><span class="num">4</span><h3>Pick focus &amp; BUs</h3><p>Choose the campaign focus (Autonomous Enterprise, AI Control Tower, Advisory, Support) plus BU coverage.</p></div>
+        <div class="step"><span class="num">5</span><h3>Export output</h3><p>Create a PDF or email-ready summary for review and activation.</p></div>
+      </div>
+    </section>
+    <div class="form-shell">
+      <section class="panel sticky">
+        <div class="section-head"><div><div class="eyebrow">Qualification rules</div><h2>Only activate accounts that pass all hard gates.</h2></div></div>
+        <div class="callout"><strong>Active campaign accounts must be existing ServiceNow customers, tagged as ZoomInfo Great Fit Accounts and showing active relevant ZoomInfo intent.</strong></div>
+        <div class="grid two">
+          <div class="card green"><h3>Primary ICP</h3><p>Banking, Government, Healthcare, Insurance, Technology / Telecoms and Manufacturing.</p></div>
+          <div class="card blue"><h3>Priority CTA</h3><p>Free 90-minute AI Readiness Assessment while the digital tool is being built.</p></div>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="section-head"><div><div class="eyebrow">Account intake</div><h2>Salesperson, account, ICP, campaign focus, BU coverage and CTA.</h2></div></div>
+        <form id="campaignForm">
+          <div class="form-grid">
+            <div class="field"><label for="salesperson">Salesperson</label><select id="salesperson" required><option value="">Select salesperson</option><option>Mandeep Rajput</option><option>Finley Norris</option><option>Gary Hollowed</option></select></div>
+            <div class="field"><label for="territory">Territory / patch</label><input id="territory" placeholder="e.g. Enterprise North / Strategic accounts"></div>
+            <div class="field"><label for="account">Number of accounts</label><input id="account" type="number" min="1" step="1" placeholder="e.g. 25" required></div>
+            <div class="field"><label for="industry">ICP industry</label><select id="industry"><option value="">Select industry</option><option>Banking / Financial Services</option><option>Government / Public Sector</option><option>Healthcare Provider</option><option>Insurance</option><option>Technology / Telecommunications</option><option>Manufacturing / Heavy Manufacturing</option><option>Life Sciences</option><option>Retail / Consumer Goods</option><option>Other - justify</option></select></div>
+            <div class="field"><label for="revenue">Revenue / scale</label><select id="revenue"><option value="">Select revenue band</option><option>Under $1B</option><option>$1B–$9.9B</option><option>$10B–$24.9B</option><option>$25B+</option><option>Unknown</option></select></div>
+            <div class="field"><label for="priority">Initial priority</label><select id="priority"><option>Tier 1: immediate outbound</option><option>Tier 2: nurture / monitor</option><option>Hold unless intent increases</option></select></div>
+            <div class="field full"><label>Campaign focus · solution areas</label><div class="solutions-grid"><div class="sol-col red"><div class="sol-head">Autonomous Enterprise</div><label class="check"><input type="checkbox" name="solutions" value="Autonomous Enterprise · Track A: Autonomous IT"> Track A · Autonomous IT</label><label class="check"><input type="checkbox" name="solutions" value="Autonomous Enterprise · Track B: Business Re-Invention"> Track B · Business Re-Invention</label></div><div class="sol-col green"><div class="sol-head">AI Control Tower</div><label class="check"><input type="checkbox" name="solutions" value="AI Control Tower · AI Platform Implementation Sequence"> AI Platform Implementation Sequence</label></div><div class="sol-col blue"><div class="sol-head">Governance &amp; OCM · Advisory</div><label class="check"><input type="checkbox" name="solutions" value="Governance &amp; OCM · Strategy &amp; Roadmap &amp; COE"> Strategy &amp; Roadmap &amp; COE</label><label class="check"><input type="checkbox" name="solutions" value="Governance &amp; OCM · AI Readiness"> AI Readiness</label><label class="check"><input type="checkbox" name="solutions" value="Governance &amp; OCM · AI Compass"> AI Compass</label></div><div class="sol-col purple"><div class="sol-head">Support &amp; Optimization</div><label class="check"><input type="checkbox" name="solutions" value="Support &amp; Optimization · Infuze"> Infuze</label><label class="check"><input type="checkbox" name="solutions" value="Support &amp; Optimization · Managed Services"> Managed Services</label><label class="check"><input type="checkbox" name="solutions" value="Support &amp; Optimization · Extend (Pro)"> Extend (Pro)</label></div></div></div><div class="field full"><label>Mandatory qualification gates</label><div class="check-grid"><label class="check"><input type="checkbox" id="servicenow"> Existing ServiceNow customer</label><label class="check"><input type="checkbox" id="greatfit"> ZoomInfo Great Fit Account</label><label class="check"><input type="checkbox" id="intent"> Active ZoomInfo intent surge</label><label class="check"><input type="checkbox" id="cio"> CIO / IT / ServiceNow owner mapped</label></div></div>
+            <div class="field full"><label>ZoomInfo intent topics</label><div class="check-grid"><label class="check"><input type="checkbox" name="topics" value="ServiceNow / ITSM / ITOM"> ServiceNow / ITSM / ITOM</label><label class="check"><input type="checkbox" name="topics" value="AI readiness / AI governance"> AI readiness / AI governance</label><label class="check"><input type="checkbox" name="topics" value="Agentic AI / AI agents"> Agentic AI / AI agents</label><label class="check"><input type="checkbox" name="topics" value="Workflow automation / ESM"> Workflow automation / ESM</label><label class="check"><input type="checkbox" name="topics" value="Data modernisation / integration"> Data modernisation / integration</label><label class="check"><input type="checkbox" name="topics" value="HR / Legal / Workplace / H&S"> HR / Legal / Workplace / H&S</label></div></div>
+            <div class="field"><label for="response">Account response status</label><select id="response"><option>No response yet - target BUs in parallel</option><option>Responded - focus based on signal</option><option>Meeting booked</option><option>Assessment complete</option></select></div>
+            <div class="field"><label for="entrypoint">Primary entry point</label><select id="entrypoint"><option>CIO</option><option>IT Director</option><option>ServiceNow Platform Owner</option><option>Enterprise Architect</option><option>Transformation Leader</option><option>BU leader</option></select></div>
+            <div class="field full"><label>Stage 06 BU coverage</label><div class="check-grid"><label class="check"><input type="checkbox" name="branches" value="HR / Employee Services"> HR / Employee Services</label><label class="check"><input type="checkbox" name="branches" value="Legal / Legal Ops"> Legal / Legal Ops</label><label class="check"><input type="checkbox" name="branches" value="Workplace / Facilities"> Workplace / Facilities</label><label class="check"><input type="checkbox" name="branches" value="Health, Safety & ESG"> Health, Safety & ESG</label><label class="check"><input type="checkbox" name="branches" value="Cross-functional ESM"> Cross-functional ESM</label><label class="check"><input type="checkbox" id="allBranches"> Select all BU branches</label></div></div>
+            <div class="field"><label for="cta">Stage 07 CTA status</label><select id="cta"><option>Invite not sent</option><option>90-minute assessment invite sent</option><option>Assessment booked</option><option>Assessment completed</option><option>Roadmap workshop proposed</option></select></div>
+            <div class="field"><label for="nextdate">Next action date</label><input type="date" id="nextdate"></div>
+            <div class="field full"><label for="nextaction">Next action / notes</label><textarea id="nextaction" placeholder="e.g. Seller to send CIO-first outreach, Growth to supply HR and Legal branch copy, presales to support assessment..."></textarea></div>
+          </div>
+          <div class="actions no-print"><button class="btn primary" type="submit">Add account</button><button class="btn" type="reset">Reset form</button></div>
+        </form>
+      </section>
+    </div>
+    <section class="panel"><div class="section-head"><div><div class="eyebrow">Selected accounts</div><h2>Intake table for export.</h2></div></div><div class="table-wrap"><table id="intakeTable"><thead><tr><th>Rep</th><th>Accounts</th><th>Territory</th><th>ICP</th><th>Gates</th><th>Intent topics</th><th>Campaign focus</th><th>Response / BU coverage</th><th>CTA / next action</th><th>Fit</th></tr></thead><tbody><tr><td colspan="10" class="empty">No accounts added yet.</td></tr></tbody></table></div></section>
+    <section class="panel"><div class="section-head"><div><div class="eyebrow">Email / PDF export</div><h2>Exportable sales intake pack.</h2><p>Use Export PDF to open your browser print dialog, then choose Save as PDF. Use Open email or Download .eml to create an email-ready draft.</p></div></div><div class="actions no-print"><button class="btn primary" type="button" onclick="exportPDF()">Export PDF</button><button class="btn" type="button" onclick="exportCSV()">Export CSV</button><button class="btn" type="button" onclick="openEmailDraft()">Open email draft</button><button class="btn" type="button" onclick="copyEmailDraft()">Copy email draft</button><button class="btn" type="button" onclick="downloadEmailDraft()">Download .eml</button></div><div class="email-subject" id="emailSubject">Subject: Crossfuze campaign intake summary</div><div id="emailOutput" class="output">No accounts added yet.</div></section>
+    <section class="footer-cta"><div><h2>Ready for review.</h2><p>This intake page creates an exportable territory plan across the Stage 05, 06 and 07 campaign flow.</p></div><div class="actions no-print"><a class="btn" href="top-account-territory-plans.html">Stage 05</a><a class="btn" href="branch-within-priority-accounts.html">Stage 06</a><a class="btn primary" href="free-one-hour-readiness-assessment.html">Stage 07</a></div></section>
+  </main>
+  <script>
+(function(){
+  'use strict';
+  const entries = [];
+  const $ = (id) => document.getElementById(id);
+  const form = $('campaignForm');
+  const allBranches = $('allBranches');
+
+  function selectedValues(name) {
+    return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map((input) => input.value);
+  }
+
+  function gateTags(gates) {
+    const tags = [];
+    if (gates.servicenow) tags.push('ServiceNow customer');
+    if (gates.greatfit) tags.push('Great Fit');
+    if (gates.intent) tags.push('Intent surge');
+    if (gates.cio) tags.push('IT owner mapped');
+    return tags;
+  }
+
+  function isQualified(gates) {
+    return Boolean(gates.servicenow && gates.greatfit && gates.intent);
+  }
+
+  function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  }
+
+  function tagHtml(text, kind) {
+    return '<span class="tag ' + (kind || '') + '">' + escapeHtml(text) + '</span>';
+  }
+
+  function addEntry(event) {
+    if (event) event.preventDefault();
+    const salesperson = $('salesperson').value.trim();
+    const account = $('account').value.trim();
+    if (!salesperson || !account) {
+      alert('Add a salesperson and number of accounts first.');
+      return;
+    }
+    const gates = {
+      servicenow: $('servicenow').checked,
+      greatfit: $('greatfit').checked,
+      intent: $('intent').checked,
+      cio: $('cio').checked
+    };
+    const entry = {
+      salesperson,
+      account,
+      territory: $('territory').value.trim(),
+      industry: $('industry').value,
+      revenue: $('revenue').value,
+      priority: $('priority').value,
+      gates,
+      qualified: isQualified(gates),
+      topics: selectedValues('topics'),
+      response: $('response').value,
+      entrypoint: $('entrypoint').value,
+      branches: selectedValues('branches'),
+      solutions: selectedValues('solutions'),
+      cta: $('cta').value,
+      nextdate: $('nextdate').value,
+      nextaction: $('nextaction').value.trim()
+    };
+    entries.push(entry);
+    render();
+    form.reset();
+    if (allBranches) allBranches.checked = false;
+  }
+
+  function render() {
+    const tbody = document.querySelector('#intakeTable tbody');
+    if (!entries.length) {
+      tbody.innerHTML = '<tr><td colspan="10" class="empty">No accounts added yet.</td></tr>';
+      $('emailOutput').textContent = 'No accounts added yet.';
+      return;
+    }
+    tbody.innerHTML = entries.map((e) => {
+      const gates = gateTags(e.gates).map((g) => tagHtml(g, 'good')).join(' ');
+      const topics = e.topics.length ? e.topics.map((t) => tagHtml(t, 'blue')).join(' ') : '—';
+      const branches = e.branches.length ? e.branches.map((b) => tagHtml(b, 'purple')).join(' ') : '—';
+      const fit = e.qualified ? tagHtml('Qualified', 'good') : tagHtml('Do not activate', 'red');
+      return '<tr>' +
+        '<td>' + escapeHtml(e.salesperson) + '</td>' +
+        '<td><strong>' + escapeHtml(e.account) + '</strong></td>' +
+        '<td>' + escapeHtml(e.territory || '—') + '</td>' +
+        '<td>' + escapeHtml(e.industry || '—') + '<br><span class="tag">' + escapeHtml(e.revenue || '—') + '</span></td>' +
+        '<td>' + (gates || '—') + '</td>' +
+        '<td>' + topics + '</td>' +
+        '<td>' + ((e.solutions && e.solutions.length) ? e.solutions.map(function(s){return tagHtml(s);}).join(' ') : '\u2013') + '</td>' +
+        '<td>' + escapeHtml(e.response) + '<br>' + branches + '</td>' +
+        '<td>' + escapeHtml(e.cta) + '<br><small>' + escapeHtml(e.nextdate || 'No date') + ' — ' + escapeHtml(e.nextaction || 'No notes') + '</small></td>' +
+        '<td>' + fit + '</td>' +
+      '</tr>';
+    }).join('');
+    $('emailOutput').textContent = emailDraft();
+  }
+
+  function emailDraft() {
+    if (!entries.length) return 'No accounts added yet.';
+    const total = entries.length;
+    const qualified = entries.filter((e) => e.qualified).length;
+    const acctOf = (e) => parseInt(e.account, 10) || 0;
+    const totalAccounts = entries.reduce((n, e) => n + acctOf(e), 0);
+    const qualifiedAccounts = entries.filter((e) => e.qualified).reduce((n, e) => n + acctOf(e), 0);
+    const reps = {};
+    entries.forEach((e) => { reps[e.salesperson] = (reps[e.salesperson] || 0) + 1; });
+    const repLine = Object.entries(reps).map(([name, count]) => name + ': ' + count).join(' | ');
+    const accountRows = entries.map((e, index) => {
+      return [
+        (index + 1) + '. ' + e.salesperson + ' · ' + e.account + ' accounts',
+        '   Territory: ' + (e.territory || '—'),
+        '   ICP: ' + (e.industry || '—') + ' / ' + (e.revenue || '—'),
+        '   Qualification: ' + (e.qualified ? 'Qualified for active Top 20–30' : 'Do not activate until gates are met'),
+        '   Gates: ' + (gateTags(e.gates).join(' | ') || '—'),
+        '   Intent: ' + (e.topics.join(', ') || '\u2013'),
+        '   Campaign focus: ' + ((e.solutions && e.solutions.join(', ')) || '\u2013'),
+        '   Stage 06 BU coverage: ' + (e.branches.join(', ') || '\u2013'),
+        '   Stage 07 CTA: ' + e.cta,
+        '   Next action: ' + (e.nextdate || 'No date') + ' — ' + (e.nextaction || 'No notes')
+      ].join('\n');
+    }).join('\n\n');
+    return [
+      'Hi team,',
+      '',
+      'Here is the Crossfuze campaign intake summary.',
+      '',
+      'Campaign rule: active accounts must be existing ServiceNow customers, tagged as ZoomInfo Great Fit Accounts, and showing relevant ZoomInfo intent. Stage 05 starts with CIO / IT / ServiceNow ownership; Stage 06 targets BU branches; Stage 07 CTA is the free 90-minute AI Readiness Assessment.',
+      '',
+      'Summary',
+      '- Total accounts added: ' + totalAccounts,
+      '- Qualified accounts: ' + qualifiedAccounts,
+      '- Needs review / not active yet: ' + (totalAccounts - qualifiedAccounts),
+      '- By salesperson: ' + repLine,
+      '',
+      'Accounts',
+      accountRows,
+      '',
+      'Requested action',
+      'Please review the account selection, confirm the territory coverage, and validate the next action for each qualified account.',
+      '',
+      'Thanks,',
+      'Crossfuze Growth'
+    ].join('\n');
+  }
+
+  function csvEscape(value) {
+    return '"' + String(value || '').replace(/"/g, '""') + '"';
+  }
+
+  function download(filename, type, content) {
+    const blob = new Blob([content], { type });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      URL.revokeObjectURL(a.href);
+      a.remove();
+    }, 250);
+  }
+
+  function fmtList(a){ return (a && a.length) ? a.join(', ') : '\u2013'; }
+  function buildPrintHtml(){
+    var now = new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'});
+    var head = '<div class="print-head"><img class="print-logo" src="crossfuze-logo-white.png" alt="Crossfuze"><div style="flex:1"><div class="print-title">Sales Campaign Intake Summary</div><div class="print-sub">Stage 05 to 07 account-based campaign</div></div><div class="print-date">'+now+'</div></div>';
+    var rule = '<div class="print-rule"><strong>Campaign rule:</strong> active accounts must be existing ServiceNow customers, tagged as ZoomInfo Great Fit Accounts and showing relevant ZoomInfo intent.</div>';
+    if (!entries.length){ return head + rule + '<p class="print-empty">No accounts added yet. Add at least one account before exporting.</p>'; }
+    var total = entries.length;
+    var qualified = entries.filter(function(e){return e.qualified;}).length;
+    var acctOf = function(e){return parseInt(e.account,10)||0;};
+    var totalAccounts = entries.reduce(function(n,e){return n+acctOf(e);},0);
+    var qualifiedAccounts = entries.filter(function(e){return e.qualified;}).reduce(function(n,e){return n+acctOf(e);},0);
+    var summary = '<div class="print-summary"><span><b>'+totalAccounts+'</b>accounts</span><span><b>'+qualifiedAccounts+'</b>qualified</span><span><b>'+(totalAccounts-qualifiedAccounts)+'</b>needs review</span></div>';
+    var blocks = entries.map(function(e,i){
+      return '<div class="print-acc">'+
+        '<div class="pa-top"><span class="pa-n">'+(i+1)+'</span><span class="pa-name">'+escapeHtml(e.account)+(e.account==='1'?' account':' accounts')+'</span><span class="pa-fit '+(e.qualified?'ok':'no')+'">'+(e.qualified?'Qualified':'Do not activate')+'</span></div>'+
+        '<table class="pa-tbl"><tbody>'+
+        '<tr><th>Salesperson</th><td>'+escapeHtml(e.salesperson)+'</td><th>Territory</th><td>'+escapeHtml(e.territory||'\u2013')+'</td></tr>'+
+        '<tr><th>ICP</th><td>'+escapeHtml(e.industry||'\u2013')+'</td><th>Revenue</th><td>'+escapeHtml(e.revenue||'\u2013')+'</td></tr>'+
+        '<tr><th>Gates</th><td colspan="3">'+escapeHtml(gateTags(e.gates).join(' · ')||'\u2013')+'</td></tr>'+
+        '<tr><th>Intent</th><td colspan="3">'+escapeHtml(fmtList(e.topics))+'</td></tr>'+
+        '<tr><th>Campaign focus</th><td colspan="3">'+escapeHtml(fmtList(e.solutions))+'</td></tr>'+
+        '<tr><th>BU coverage</th><td colspan="3">'+escapeHtml(fmtList(e.branches))+'</td></tr>'+
+        '<tr><th>Stage 07 CTA</th><td colspan="3">'+escapeHtml(e.cta)+'</td></tr>'+
+        '<tr><th>Next action</th><td colspan="3">'+escapeHtml((e.nextdate||'No date')+' · '+(e.nextaction||'No notes'))+'</td></tr>'+
+        '</tbody></table></div>';
+    }).join('');
+    return head + rule + summary + blocks;
+  }
+  window.exportPDF = function() {
+    var host = document.getElementById('printDoc');
+    if (!host){ host = document.createElement('div'); host.id = 'printDoc'; document.body.appendChild(host); }
+    host.innerHTML = buildPrintHtml();
+    document.body.classList.add('printing');
+    window.focus();
+    setTimeout(function(){ window.print(); }, 60);
+  };
+  window.addEventListener('afterprint', function(){ document.body.classList.remove('printing'); });
+
+  window.exportCSV = function() {
+    const headers = ['Salesperson','Number of Accounts','Territory','ICP Industry','Revenue','Priority','Qualified','Gates','Intent Topics','Campaign Focus','Response','BU Coverage','CTA','Next Date','Next Action'];
+    const rows = entries.map((e) => [e.salesperson,e.account,e.territory,e.industry,e.revenue,e.priority,e.qualified ? 'Yes' : 'No',gateTags(e.gates).join(' | '),e.topics.join('; '),(e.solutions||[]).join('; '),e.response,e.branches.join('; '),e.cta,e.nextdate,e.nextaction]);
+    const csv = [headers].concat(rows).map((row) => row.map(csvEscape).join(',')).join('\r\n');
+    download('crossfuze-campaign-intake.csv', 'text/csv;charset=utf-8', csv);
+  };
+
+  window.openEmailDraft = function() {
+    const subject = 'Crossfuze campaign intake summary';
+    const body = emailDraft();
+    const mailto = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
+  };
+
+  window.copyEmailDraft = async function() {
+    try {
+      await navigator.clipboard.writeText(emailDraft());
+      alert('Email draft copied.');
+    } catch (err) {
+      alert('Copy failed. Select and copy the text manually.');
+    }
+  };
+
+  window.downloadEmailDraft = function() {
+    const subject = 'Crossfuze campaign intake summary';
+    const body = emailDraft().replace(/\n/g, '\r\n');
+    const eml = 'Subject: ' + subject + '\r\n' + 'Content-Type: text/plain; charset=utf-8\r\n\r\n' + body;
+    download('crossfuze-campaign-intake.eml', 'message/rfc822', eml);
+  };
+
+  if (allBranches) {
+    allBranches.addEventListener('change', function() {
+      document.querySelectorAll('input[name="branches"]').forEach((input) => { input.checked = allBranches.checked; });
+    });
+  }
+  form.addEventListener('submit', addEntry);
+  render();
+})();
+</script>
+</body>
+</html>
